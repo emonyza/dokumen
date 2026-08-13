@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+    width: 100%;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 0;
+    margin-bottom: 16px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #111;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* File List View Style (Sesuai Gambar Kamu) */
+.file-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.1s ease;
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.file-item:hover {
+    background-color: #e8f0fe; /* Efek hover biru muda seperti Windows */
+}
+
+/* SVG Icon Hijau ala Corel/Vector */
+.file-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-name {
+    font-size: 0.95rem;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #e2e6ea;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Detail View & Utilities */
+.hidden {
+    display: none !important;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #1a73e8;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.detail-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 32px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.file-big-icon {
+    margin-bottom: 16px;
+}
+
+.detail-card h2 {
+    font-size: 1.2rem;
+    word-break: break-all;
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: #2e7d32; /* Warna hijau matching icon */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.loading, .error-message {
+    text-align: center;
+    padding: 24px;
+    color: #666;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 16px;
+    border-top: 1px solid #eee;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Penyesuaian Mobile */
+@media (max-width: 600px) {
+    .file-item {
+        padding: 10px 12px;
+    }
+    .file-name {
+        font-size: 0.9rem;
+    }
+}
