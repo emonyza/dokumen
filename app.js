@@ -1,8 +1,8 @@
 // CONFIGURATION
 const CONFIG = {
     username: "emonyza", 
-    repo: "dokumen",
-    folder: "dokumen", // Diubah ke folder 'dokumen'
+    repo: "dokumen",   // Nama repository diubah ke 'dokumen'
+    folder: "dokumen", // Nama folder di dalam repository
     itemsPerPage: 10
 };
 
@@ -32,7 +32,7 @@ async function fetchFilesFromGitHub() {
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-            throw new Error("Gagal mengambil data dari folder 'dokumen'. Pastikan nama folder di GitHub persis 'dokumen'.");
+            throw new Error("Gagal mengambil data dari folder 'dokumen' di repo 'dokumen'. Pastikan repo dan foldernya sudah benar.");
         }
         
         const files = await response.json();
