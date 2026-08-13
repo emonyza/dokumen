@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar File</title>
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="kode_unik_google_kamu" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo"><a href="./">File Drive</a></h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Tampilan Home (File List) -->
+        <section id="home-view">
+            <div id="file-list" class="file-list">
+                <!-- Daftar file dimuat di sini -->
+            </div>
+            <div id="loading" class="loading">Memuat daftar file...</div>
+            <div id="error-message" class="error-message"></div>
+
+            <!-- Navigasi Halaman -->
+            <div class="pagination">
+                <button id="prev-btn" disabled>&laquo; Prev</button>
+                <span id="page-indicator">Halaman 1</span>
+                <button id="next-btn">Next &raquo;</button>
+            </div>
+        </section>
+
+        <!-- Tampilan Detail File (Klik Item) -->
+        <section id="detail-view" class="detail-view hidden">
+            <button id="back-btn" class="back-btn">&larr; Kembali ke Daftar File</button>
+            <div class="detail-card">
+                <div class="file-big-icon">
+                    <svg viewBox="0 0 24 24" width="64" height="64">
+                        <path fill="#2e7d32" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                </div>
+                <h2 id="detail-title"></h2>
+                <div class="detail-actions">
+                    <a id="download-btn" href="" download target="_blank" class="download-btn">Unduh File</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 File Repository. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
