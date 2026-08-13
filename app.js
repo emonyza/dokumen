@@ -1,8 +1,8 @@
 // CONFIGURATION
 const CONFIG = {
     username: "emonyza", 
-    repo: "galery",
-    folder: "images", // tetap membaca dari folder 'images' (atau ubah ke 'files' jika nama foldernya diganti)
+    repo: "dokumen",
+    folder: "dokumen", // Diubah ke folder 'dokumen'
     itemsPerPage: 10
 };
 
@@ -19,7 +19,7 @@ const pageIndicator = document.getElementById("page-indicator");
 const homeView = document.getElementById("home-view");
 const detailView = document.getElementById("detail-view");
 
-// Icon SVG Hijau (mirip gambar kamu)
+// Icon SVG Hijau (mirip icon CorelDRAW)
 const greenIconSvg = `
 <svg viewBox="0 0 24 24" width="20" height="20">
     <path fill="#2e7d32" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
@@ -32,18 +32,18 @@ async function fetchFilesFromGitHub() {
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-            throw new Error("Gagal mengambil data folder dari GitHub.");
+            throw new Error("Gagal mengambil data dari folder 'dokumen'. Pastikan nama folder di GitHub persis 'dokumen'.");
         }
         
         const files = await response.json();
         
-        // Mengambil semua file (kecuali folder / file tersembunyi seperti .gitkeep)
+        // Mengambil semua file (mengabaikan folder dan file tersembunyi seperti .gitkeep)
         allFiles = files.filter(file => file.type === "file" && !file.name.startsWith('.'));
 
         loadingEl.classList.add("hidden");
 
         if (allFiles.length === 0) {
-            errorEl.innerText = "Tidak ada file ditemukan di folder '" + CONFIG.folder + "'.";
+            errorEl.innerText = "Tidak ada file ditemukan di folder 'dokumen'.";
             return;
         }
 
@@ -67,7 +67,7 @@ function renderPage(page) {
         const item = document.createElement("div");
         item.className = "file-item";
         
-        // Klik item untuk masuk ke detail file / link download
+        // Klik item untuk membuka halaman detail & unduh
         item.onclick = () => {
             window.location.hash = encodeURIComponent(file.name);
         };
@@ -144,5 +144,5 @@ document.getElementById("back-btn").addEventListener("click", () => {
 
 window.addEventListener("hashchange", checkRoute);
 
-// Jalankan
+// Jalankan Aplikasi
 fetchFilesFromGitHub();
